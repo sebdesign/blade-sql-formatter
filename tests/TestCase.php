@@ -1,10 +1,10 @@
 <?php
 
-namespace Sebdesign\BladeSql\Tests;
+namespace Sebdesign\BladeSqlFormatter\Tests;
 
 use Illuminate\Foundation\Testing\Concerns\InteractsWithViews;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Sebdesign\BladeSql\BladeSqlServiceProvider;
+use Sebdesign\BladeSqlFormatter\BladeSqlServiceProvider;
 
 class TestCase extends Orchestra
 {

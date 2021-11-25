@@ -1,3 +1,3 @@
 # Changelog
 
-All notable changes to `blade-sql` will be documented in this file.
+All notable changes to `blade-sql-formatter` will be documented in this file.

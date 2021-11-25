@@ -43,7 +43,7 @@ it('renders the sql without formatting and highlighting', function () {
 
 it('renders the formatted sql with indentation', function () {
     $sql = "select * from `users` where `email` = 'info@example.com'";
-    config(['blade-sql.indent_string' => '    ']);
+    config(['blade-sql-formatter.indent_string' => '    ']);
 
     $blade = test()->blade(sprintf('<x-sql>%s</x-sql>', $sql));
     $indented = (new SqlFormatter(app(Highlighter::class)))->format($sql, '    ');
@@ -55,7 +55,7 @@ it('renders the html attributes', function () {
     $sql = "select * from `users` where `email` = 'info@example.com'";
 
     $blade = test()->blade(sprintf('<x-sql class="mb-0" id="sql">%s</x-sql>', $sql));
-    $htmlAttributes = array_replace(config('blade-sql.html_attributes'), ['pre' => 'class="mb-0" id="sql"']);
+    $htmlAttributes = array_replace(config('blade-sql-formatter.html_attributes'), ['pre' => 'class="mb-0" id="sql"']);
     $rendered = (new SqlFormatter(new HtmlHighlighter($htmlAttributes)))->format($sql);
 
     expect((string) $blade)->toBe($rendered);

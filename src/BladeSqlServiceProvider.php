@@ -1,6 +1,6 @@
 <?php
 
-namespace Sebdesign\BladeSql;
+namespace Sebdesign\BladeSqlFormatter;
 
 use Doctrine\SqlFormatter\Highlighter;
 use Doctrine\SqlFormatter\HtmlHighlighter;
@@ -10,9 +10,9 @@ use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\View;
 use Illuminate\View\Engines\CompilerEngine;
-use Sebdesign\BladeSql\Compilers\SqlCompiler;
-use Sebdesign\BladeSql\Components\SqlComponent;
-use Sebdesign\BladeSql\Directives\SqlDirective;
+use Sebdesign\BladeSqlFormatter\Compilers\SqlCompiler;
+use Sebdesign\BladeSqlFormatter\Components\SqlComponent;
+use Sebdesign\BladeSqlFormatter\Directives\SqlDirective;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -21,7 +21,7 @@ class BladeSqlServiceProvider extends PackageServiceProvider
     public function configurePackage(Package $package): void
     {
         $package
-            ->name('blade-sql')
+            ->name('blade-sql-formatter')
             ->hasConfigFile();
     }
 
@@ -36,18 +36,18 @@ class BladeSqlServiceProvider extends PackageServiceProvider
     {
         $this->app->bind(Highlighter::class, function (Application $app, array $parameters = []) {
             /** @var class-string<Highlighter> $highlighter */
-            $highlighter = config('blade-sql.highlighter') ?? HtmlHighlighter::class;
+            $highlighter = config('blade-sql-formatter.highlighter') ?? HtmlHighlighter::class;
 
             return $app->make($highlighter, $parameters);
         });
 
         $this->app->bind(HtmlHighlighter::class, function (Application $app, array $parameters = []) {
             /** @var array<string,string> $htmlAttributes */
-            $htmlAttributes = config('blade-sql.html_attributes', []);
+            $htmlAttributes = config('blade-sql-formatter.html_attributes', []);
             $htmlAttributes = array_replace($htmlAttributes, $parameters['htmlAttributes'] ?? []);
 
             /** @var bool $usePre */
-            $usePre = (bool) config('blade-sql.use_pre', true);
+            $usePre = (bool) config('blade-sql-formatter.use_pre', true);
 
             return new HtmlHighlighter($htmlAttributes, $usePre);
         });
@@ -70,7 +70,7 @@ class BladeSqlServiceProvider extends PackageServiceProvider
             $formatter = $app->make(SqlFormatter::class);
 
             /** @var string $indent */
-            $indent = config('blade-sql.indent_string', '  ');
+            $indent = config('blade-sql-formatter.indent_string', '  ');
 
             /** @var Filesystem $filesystem */
             $filesystem = $app->make('files');

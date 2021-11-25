@@ -1,6 +1,6 @@
 <?php
 
-namespace Sebdesign\BladeSql\Compilers;
+namespace Sebdesign\BladeSqlFormatter\Compilers;
 
 use Doctrine\SqlFormatter\SqlFormatter;
 use Illuminate\Filesystem\Filesystem;

@@ -1,10 +1,10 @@
 # Display formatted SQL queries in your Laravel views
 
-[![GitHub license](https://img.shields.io/github/license/sebdesign/blade-sql)](https://github.com/sebdesign/blade-sql/blob/main/LICENSE.md)
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/sebdesign/blade-sql.svg)](https://packagist.org/packages/sebdesign/blade-sql)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/sebdesign/blade-sql/run-tests?label=tests)](https://github.com/sebdesign/blade-sql/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/sebdesign/blade-sql/Check%20&%20fix%20styling?label=code%20style)](https://github.com/sebdesign/blade-sql/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/sebdesign/blade-sql.svg)](https://packagist.org/packages/sebdesign/blade-sql)
+[![GitHub license](https://img.shields.io/github/license/sebdesign/blade-sql-formatter)](https://github.com/sebdesign/blade-sql-formatter/blob/main/LICENSE.md)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/sebdesign/blade-sql-formatter.svg)](https://packagist.org/packages/sebdesign/blade-sql-formatter)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/sebdesign/blade-sql-formatter/run-tests?label=tests)](https://github.com/sebdesign/blade-sql-formatter/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/sebdesign/blade-sql-formatter/Check%20&%20fix%20styling?label=code%20style)](https://github.com/sebdesign/blade-sql-formatter/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/sebdesign/blade-sql-formatter.svg)](https://packagist.org/packages/sebdesign/blade-sql-formatter)
 
 A small Laravel package for formatting SQL statements and files inside your Blade templates.
 
@@ -17,12 +17,12 @@ This package uses [`doctrine/sql-formatter`](https://github.com/doctrine/sql-for
 You can install the package via composer:
 
 ```bash
-composer require sebdesign/blade-sql
+composer require sebdesign/blade-sql-formatter
 ```
 
 You can publish the config file with:
 ```bash
-php artisan vendor:publish --tag="blade-sql-config"
+php artisan vendor:publish --tag="blade-sql-formatter-config"
 ```
 
 This is the contents of the published config file:

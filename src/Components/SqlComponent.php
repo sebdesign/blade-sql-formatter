@@ -1,6 +1,6 @@
 <?php
 
-namespace Sebdesign\BladeSql\Components;
+namespace Sebdesign\BladeSqlFormatter\Components;
 
 use Closure;
 use Doctrine\SqlFormatter\Highlighter;
@@ -20,7 +20,7 @@ class SqlComponent extends Component
         public bool $highlight = true,
     ) {
         /** @phpstan-ignore-next-line */
-        $this->indent = config('blade-sql.indent_string', '  ');
+        $this->indent = config('blade-sql-formatter.indent_string', '  ');
     }
 
     public function render(): Closure

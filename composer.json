@@ -1,5 +1,5 @@
 {
-    "name": "sebdesign/blade-sql",
+    "name": "sebdesign/blade-sql-formatter",
     "description": "Display formatted SQL queries in your Laravel views",
     "keywords": [
         "laravel",
@@ -7,7 +7,7 @@
         "query",
         "sql"
     ],
-    "homepage": "https://github.com/sebdesign/blade-sql",
+    "homepage": "https://github.com/sebdesign/blade-sql-formatter",
     "license": "MIT",
     "authors": [
         {
@@ -37,12 +37,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Sebdesign\\BladeSql\\": "src"
+            "Sebdesign\\BladeSqlFormatter\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Sebdesign\\BladeSql\\Tests\\": "tests"
+            "Sebdesign\\BladeSqlFormatter\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -56,7 +56,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Sebdesign\\BladeSql\\BladeSqlServiceProvider"
+                "Sebdesign\\BladeSqlFormatter\\BladeSqlServiceProvider"
             ]
         }
     },

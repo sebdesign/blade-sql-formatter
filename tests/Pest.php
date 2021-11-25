@@ -1,5 +1,5 @@
 <?php
 
-use Sebdesign\BladeSql\Tests\TestCase;
+use Sebdesign\BladeSqlFormatter\Tests\TestCase;
 
 uses(TestCase::class)->in(__DIR__);

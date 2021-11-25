@@ -1,6 +1,6 @@
 <?php
 
-namespace Sebdesign\BladeSql\Directives;
+namespace Sebdesign\BladeSqlFormatter\Directives;
 
 use Doctrine\SqlFormatter\SqlFormatter;
 use Illuminate\Support\Facades\Blade;
