@@ -89,17 +89,17 @@ Output:
 </x-sql>
 
 <!-- Syntax highlighting only -->
-<x-sql format="false">
+<x-sql :format="false">
     select * from `users` where `id` = 1 limit 1
 </x-sql>
 
 <!-- Formatting only -->
-<x-sql highlight="false">
+<x-sql :highlight="false">
     select * from `users` where `id` = 1 limit 1
 </x-sql>
 ```
 
-### HTML Entity Encoding#
+### HTML Entity Encoding
 
 If you use Blade's `{{ }}` echo statements inside the `<x-sql>` component, they will be sent through `htmlspecialchars` automatically.
 If your SQL statement contains single `'` or double `"` quotes, they will be double-encoded.
