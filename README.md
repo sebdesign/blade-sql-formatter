@@ -12,7 +12,7 @@ This package uses [`doctrine/sql-formatter`](https://github.com/doctrine/sql-for
 
 ## Installation
 
-> **Requires [PHP 8.0+](https://php.net/releases) and [Laravel 8+](https://laravel.com/docs/8.x/releases)**
+> **Requires [PHP 8.0+](https://php.net/releases) and [Laravel 9+](https://laravel.com/docs/9.x/releases)**
 
 You can install the package via composer:
 
