@@ -7,7 +7,7 @@ use Doctrine\SqlFormatter\Highlighter;
 use Doctrine\SqlFormatter\HtmlHighlighter;
 use Doctrine\SqlFormatter\NullHighlighter;
 use Doctrine\SqlFormatter\SqlFormatter;
-use Illuminate\Support\HtmlString;
+use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\View\Component;
 use Illuminate\View\ComponentAttributeBag;
 
@@ -31,7 +31,7 @@ class SqlComponent extends Component
     /**
      * @param ComponentAttributeBag<string,string> $attributes
      */
-    private function format(HtmlString $slot, ComponentAttributeBag $attributes): string
+    private function format(Htmlable $slot, ComponentAttributeBag $attributes): string
     {
         $highlighter = $this->highlighter($attributes);
         $formatter = $this->formatter($highlighter);

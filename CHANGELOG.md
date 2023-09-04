@@ -2,6 +2,10 @@
 
 All notable changes to `blade-sql-formatter` will be documented in this file.
 
+## v0.2.1 - 2023-09-04
+
+-   Use `Htmlable` instead of `HtmlString`
+
 ## v0.2.0 - 2023-02-03
 
 -   Drop support for Laravel 8
