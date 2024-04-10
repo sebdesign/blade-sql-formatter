@@ -2,6 +2,10 @@
 
 All notable changes to `blade-sql-formatter` will be documented in this file.
 
+## v0.2.2 - 2024-04-10
+
+-   Update compatibility to Laravel 11 and PHPUnit 11 by @sharafat [#1](https://github.com/sebdesign/blade-sql-formatter/pull/1)
+
 ## v0.2.1 - 2023-09-04
 
 -   Use `Htmlable` instead of `HtmlString`
