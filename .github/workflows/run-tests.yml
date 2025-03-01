@@ -2,21 +2,27 @@ name: run-tests
 
 on:
   push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+    paths:
+      - "**.php"
+      - ".github/workflows/run-tests.yml"
+      - "phpunit.xml.dist"
+      - "composer.json"
+      - "composer.lock"
 
 jobs:
   test:
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 5
     strategy:
       fail-fast: true
       matrix:
         os: [ubuntu-latest, windows-latest]
-        php: [8.2, 8.1, 8.0]
-        laravel: [11.*, 10.*, 9.*]
+        php: [8.4, 8.3, 8.2, 8.1, 8.0]
+        laravel: [12.*, 11.*, 10.*, 9.*]
         stability: [prefer-lowest, prefer-stable]
         include:
+          - laravel: 12.*
+            testbench: 10.*
           - laravel: 11.*
             testbench: 9.*
           - laravel: 10.*
@@ -24,6 +30,10 @@ jobs:
           - laravel: 9.*
             testbench: 7.*
         exclude:
+          - laravel: 12.*
+            php: 8.1
+          - laravel: 12.*
+            php: 8.0
           - laravel: 11.*
             php: 8.1
           - laravel: 11.*
@@ -35,7 +45,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -49,10 +59,18 @@ jobs:
           echo "::add-matcher::${{ runner.tool_cache }}/php.json"
           echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
 
+      - name: Fix dependencies
+        if: ${{ startsWith(matrix.laravel, '9') }}
+        run: |
+          composer require "nesbot/carbon:^2.72.6" --no-interaction --no-update
+
       - name: Install dependencies
         run: |
           composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
           composer update --${{ matrix.stability }} --prefer-dist --no-interaction
 
+      - name: List Installed Dependencies
+        run: composer show -D
+
       - name: Execute tests
-        run: vendor/bin/pest
+        run: vendor/bin/pest --ci
