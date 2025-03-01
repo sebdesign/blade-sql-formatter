@@ -18,7 +18,7 @@ it('renders the formatted sql without highlighting', function () {
     $sql = "select * from `users` where `email` = 'info@example.com'";
 
     $blade = test()->blade('<x-sql :highlight="false">{!! $sql !!}</x-sql>', ['sql' => $sql]);
-    $formatted = (new SqlFormatter(new NullHighlighter()))->format($sql);
+    $formatted = (new SqlFormatter(new NullHighlighter))->format($sql);
 
     expect((string) $blade)->toBe($formatted);
 });
@@ -36,7 +36,7 @@ it('renders the sql without formatting and highlighting', function () {
     $sql = "select * from `users` where `email` = 'info@example.com'";
 
     $blade = test()->blade(sprintf('<x-sql :format="false" :highlight="false">%s</x-sql>', $sql));
-    $plain = (new SqlFormatter(new NullHighlighter()))->highlight($sql);
+    $plain = (new SqlFormatter(new NullHighlighter))->highlight($sql);
 
     expect((string) $blade)->toBe($plain);
 });

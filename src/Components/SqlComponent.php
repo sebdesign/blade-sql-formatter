@@ -29,7 +29,7 @@ class SqlComponent extends Component
     }
 
     /**
-     * @param ComponentAttributeBag<string,string> $attributes
+     * @param  ComponentAttributeBag<string,string>  $attributes
      */
     private function format(Htmlable $slot, ComponentAttributeBag $attributes): string
     {
@@ -42,17 +42,17 @@ class SqlComponent extends Component
     }
 
     /**
-     * @param ComponentAttributeBag<string,string> $attributes
+     * @param  ComponentAttributeBag<string,string>  $attributes
      */
     private function highlighter(ComponentAttributeBag $attributes): Highlighter
     {
         return $this->highlight
             ? app(Highlighter::class, ['htmlAttributes' => $this->formatAttributes($attributes)])
-            : new NullHighlighter();
+            : new NullHighlighter;
     }
 
     /**
-     * @param ComponentAttributeBag<string,string> $attributes
+     * @param  ComponentAttributeBag<string,string>  $attributes
      * @return array<string,string>
      */
     private function formatAttributes(ComponentAttributeBag $attributes): array
