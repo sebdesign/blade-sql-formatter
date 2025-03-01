@@ -2,6 +2,10 @@
 
 All notable changes to `blade-sql-formatter` will be documented in this file.
 
+## v0.3.0 - 2025-03-01
+
+- Drop support for Laravel 9
+
 ## v0.2.3 - 2025-03-01
 
 - Add Laravel 12 compatibility  by @sharafat [#2](https://github.com/sebdesign/blade-sql-formatter/pull/2)
