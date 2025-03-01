@@ -57,7 +57,10 @@ class SqlComponent extends Component
      */
     private function formatAttributes(ComponentAttributeBag $attributes): array
     {
-        return array_filter([HtmlHighlighter::HIGHLIGHT_PRE => (string) $attributes]);
+        return array_filter(
+            [HtmlHighlighter::HIGHLIGHT_PRE => (string) $attributes],
+            fn (string $attributes) => $attributes !== '',
+        );
     }
 
     private function formatter(Highlighter $highlighter): SqlFormatter
