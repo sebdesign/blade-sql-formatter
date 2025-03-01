@@ -2,8 +2,8 @@
 
 [![GitHub license](https://img.shields.io/github/license/sebdesign/blade-sql-formatter)](https://github.com/sebdesign/blade-sql-formatter/blob/main/LICENSE.md)
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/sebdesign/blade-sql-formatter.svg)](https://packagist.org/packages/sebdesign/blade-sql-formatter)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/sebdesign/blade-sql-formatter/run-tests?label=tests)](https://github.com/sebdesign/blade-sql-formatter/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/sebdesign/blade-sql-formatter/Check%20&%20fix%20styling?label=code%20style)](https://github.com/sebdesign/blade-sql-formatter/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/sebdesign/blade-sql-formatter/run-tests.yml?branch=main&label=tests)](https://github.com/sebdesign/blade-sql-formatter/actions/workflows/run-tests.yml?query=branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/sebdesign/blade-sql-formatter/fix-php-code-style-issues.yml?branch=main&label=code%20style)](https://github.com/sebdesign/blade-sql-formatter/actions/workflows/fix-php-code-style-issues.yml?query=branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/sebdesign/blade-sql-formatter.svg)](https://packagist.org/packages/sebdesign/blade-sql-formatter)
 
 A small Laravel package for formatting SQL statements and files inside your Blade templates.
@@ -12,7 +12,7 @@ This package uses [`doctrine/sql-formatter`](https://github.com/doctrine/sql-for
 
 ## Installation
 
-> **Requires [PHP 8.0+](https://php.net/releases) and [Laravel 9+](https://laravel.com/docs/9.x/releases)**
+> **Requires [PHP 8.1+](https://php.net/releases) and [Laravel 10+](https://laravel.com/docs/10.x/releases)**
 
 You can install the package via composer:
 
@@ -21,6 +21,7 @@ composer require sebdesign/blade-sql-formatter
 ```
 
 You can publish the config file with:
+
 ```bash
 php artisan vendor:publish --tag="blade-sql-formatter-config"
 ```
@@ -59,6 +60,7 @@ Feel free to customize the style of each token. You can use inline styles or CSS
 ## Usage
 
 Input:
+
 ```
 select * from `users` where `id` = 1 limit 1
 ```
@@ -105,6 +107,7 @@ If you use Blade's `{{ }}` echo statements inside the `<x-sql>` component, they 
 If your SQL statement contains single `'` or double `"` quotes, they will be double-encoded.
 
 For example:
+
 ```html
 @php($sql = "select * from `users` where `email` = 'info@example.com'")
 
@@ -112,6 +115,7 @@ For example:
 ```
 
 Will output:
+
 <pre style="color: black; background-color: white;"><span style="font-weight:bold;">select</span>
   <span >*</span>
 <span style="font-weight:bold;">from</span>
@@ -124,6 +128,7 @@ In order to address this, you can use raw echo statements `{!! !!}` on your own 
 > Learn more about [displaying unescaped data](https://laravel.com/docs/8.x/blade#displaying-unescaped-data).
 
 For example:
+
 ```html
 @php($sql = "select * from `users` where `email` = 'info@example.com'")
 
@@ -131,6 +136,7 @@ For example:
 ```
 
 Will output:
+
 <pre style="color: black; background-color: white;"><span style="font-weight:bold;">select</span>
   <span >*</span>
 <span style="font-weight:bold;">from</span>
@@ -181,6 +187,7 @@ public function boot()
 ```
 
 Render `database/queries/users/select-first-user.sql` from a controller.
+
 ```php
 public function show()
 {
@@ -189,6 +196,7 @@ public function show()
 ```
 
 Include `database/queries/users/select-first-user.sql` within a Blade view.
+
 ```php
 @include('sql::users.select-first-user')
 ```
@@ -213,10 +221,10 @@ Please review [our security policy](.github/SECURITY.md) on how to report securi
 
 ## Credits
 
-- [Sébastien Nikolaou](https://github.com/sebdesign)
-- [Grégoire Paris](https://github.com/greg0ire)
-- [Jeremy Dorn](https://github.com/jdorn)
-- [All Contributors](../../contributors)
+-   [Sébastien Nikolaou](https://github.com/sebdesign)
+-   [Grégoire Paris](https://github.com/greg0ire)
+-   [Jeremy Dorn](https://github.com/jdorn)
+-   [All Contributors](../../contributors)
 
 ## License
 
