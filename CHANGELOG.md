@@ -2,6 +2,14 @@
 
 All notable changes to `blade-sql-formatter` will be documented in this file.
 
+## v0.4.0 - 2026-04-06
+
+### What's Changed
+
+* Add Laravel 13 Compatibility by @sharafat in https://github.com/sebdesign/blade-sql-formatter/pull/3
+
+**Full Changelog**: https://github.com/sebdesign/blade-sql-formatter/compare/v0.3.0...v0.4.0
+
 ## v0.3.0 - 2025-03-01
 
 - Drop support for Laravel 9
